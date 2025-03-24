@@ -202,7 +202,7 @@ func gen(folder string, group spec.Group, dir, nameStyle string) error {
 	}
 
 	if len(content) > 0 {
-		formatCode = string(content) + "\n" + formatCode
+		formatCode = strings.TrimSuffix(string(content) + "\n" + formatCode, "\n")
 	}
 	_, err = fp.WriteString(formatCode)
 	return err
